@@ -1,0 +1,266 @@
+<div class="tableHeader">
+  Users
+  <!-- <button type="button" class="btn btn-outline-success DownloadButton">
+      Download Report
+    </button> -->
+</div>
+<hr class="hrStyle" />
+<div class="content">
+  <input
+    type="text"
+    class="form-control searchBox"
+    [(ngModel)]="searchText"
+    placeholder="Search incidents..."
+  />
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Sr no</th>
+        <th scope="col">User Name</th>
+        <th scope="col">Role</th>
+        <th scope="col">Mobile Number</th>
+        <th scope="col">Email</th>
+        <th scope="col">Backup contact</th>
+        <th scope="col">Security contact</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="
+          let userData of filteredData()
+            | paginate : { itemsPerPage: 5, currentPage: p };
+          let i = index
+        "
+      >
+        <th scope="row">{{ i + 1 + (p - 1) * 5 }}</th>
+        <td>{{ userData.name }}</td>
+        <td>{{ userData.role }}</td>
+        <td>{{ userData.mobile }}</td>
+        <td>{{ userData.email }}</td>
+        <td>{{ userData.backup_contact }}</td>
+        <td>{{ userData.security_contact }}</td>
+        <td>
+          <button
+            data-bs-toggle="modal"
+            data-bs-target="#staticBackdrop"
+            type="button"
+            class="btn btn-outline-success ImageButton"
+            (click)="editUser(userData._id)"
+          >
+            <i class="bi bi-pencil-square"></i>
+          </button>
+
+          <button
+            data-bs-toggle="modal"
+            data-bs-target="#staticBackdropVideo"
+            type="button"
+            class="btn btn-outline-danger VideoButton"
+            (click)="deleteUser(userData.user_id)"
+          >
+            <i class="bi bi-trash"></i>
+            <!-- Delete Icon -->
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- edit user -->
+  <div
+    class="modal fade"
+    id="staticBackdrop"
+    tabindex="-1"
+    aria-labelledby="staticBackdropLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-scrollable modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Edit User</h1>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <form action="" [formGroup]="editRegisterForm">
+            <div class="row g-2">
+              <div class="col-md">
+                <div class="form-floating inputClass">
+                  <input
+                    type="text"
+                    formControlName="name"
+                    class="form-control"
+                    placeholder="User Name"
+                  />
+                  <label for="floatingInput"
+                    >User Name <span style="color: red">*</span></label
+                  >
+                </div>
+              </div>
+              <div class="col-md">
+                <div class="form-floating inputClass">
+                  <input
+                    type="text"
+                    formControlName="email"
+                    class="form-control"
+                    placeholder="Enter email"
+                  />
+                  <label for="floatingInputGrid"
+                    >Email address <span style="color: red">*</span></label
+                  >
+                </div>
+              </div>
+              <div class="col-md">
+                <div class="form-floating inputClass">
+                  <input
+                    type="password"
+                    formControlName="password"
+                    class="form-control"
+                    placeholder="Password"
+                  />
+                  <label for="floatingInputGrid"
+                    >Password <span style="color: red">*</span></label
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="row g-2">
+              <div class="col-md">
+                <div class="form-floating inputClass">
+                  <input
+                    type="text"
+                    formControlName="mobile"
+                    class="form-control"
+                    placeholder="Mobile No"
+                  />
+                  <label for="floatingInputGrid"
+                    >Mobile Number <span style="color: red">*</span></label
+                  >
+                </div>
+              </div>
+              <div class="col-md">
+                <div class="form-floating inputClass">
+                  <input
+                    type="text"
+                    formControlName="backup_contact"
+                    class="form-control"
+                    placeholder="Backup person contact"
+                  />
+                  <label for="floatingInputGrid"
+                    >Backup contact <span style="color: red">*</span></label
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="row g-2">
+              <div class="col-md">
+                <div class="form-floating inputClass">
+                  <input
+                    type="text"
+                    formControlName="security_contact"
+                    class="form-control"
+                    placeholder="Security contact"
+                  />
+                  <label for="floatingInputGrid"
+                    >Security contact <span style="color: red">*</span></label
+                  >
+                </div>
+              </div>
+              <div class="col-md">
+                <div class="dropdown inputClass">
+                  <select
+                    class="form-select form-control"
+                    formControlName="role"
+                    aria-label="Small select example"
+                  >
+                    <option value="" selected disabled class="placeholder">
+                      Select Role
+                    </option>
+                    <option value="Admin">Admin</option>
+                    <option value="Client">Client</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-md">
+                <div class="ImageinputClass">
+                  <input
+                    type="file"
+                    formControlName="image"
+                    class="form-control"
+                    id="imageUpload"
+                    (change)="onImageUpload($event)"
+                    accept="image/*"
+                  />
+                </div>
+                <!-- Display the previous or newly uploaded image -->
+                <div *ngIf="imagePreview" class="image-preview">
+                  <img
+                    [src]="imagePreview"
+                    alt="Uploaded Image"
+                    style="max-width: 100%; height: auto"
+                  />
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-outline Cancelregister"
+            data-bs-dismiss="modal"
+          >
+            Cancel
+          </button>
+          <button
+            type="button"
+            class="btn btn-primary saveRegister"
+            data-bs-dismiss="modal"
+            (click)="updateregisterUser()"
+            
+          >
+            Save Changes
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast-container position-fixed top-0 end-0 p-3">
+    <div
+      id="liveToast"
+      class="toast"
+      role="alert"
+      aria-live="assertive"
+      aria-atomic="true"
+      [class.show]="toastVisible"
+    >
+      <div class="toast-header">
+        <strong class="me-auto">Server Response</strong>
+        <small>Just now</small>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="toast"
+          aria-label="Close"
+          (click)="hideToast()"
+        ></button>
+      </div>
+      <div class="toast-body">
+        {{ toastMessage }}
+      </div>
+    </div>
+  </div>
+
+  <!-- Pagination Controls -->
+  <div class="pagination-container">
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </div>
+  <div *ngIf="userDataArray.length === 0">
+    <p style="color: white">No incidents found...</p>
+  </div>
+</div>

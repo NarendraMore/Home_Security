@@ -1,0 +1,258 @@
+.sidebarComponent {
+  display: flex; /* Use Flexbox for layout */
+  align-items: center; /* Vertically center items */
+  justify-content: space-between; /* Space out items */
+  padding: 10px 20px;
+  background-color: #f4f4f4; /* Optional background color */
+  border: 1px solid #ddd; /* Optional border */
+  height: 65px; /* Adjust height as needed */
+}
+
+.CompanyLogo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.searchBox::placeholder {
+  color: #ffffff;
+  opacity: 0.5;
+}
+
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+.searchBox {
+  border-color: rgba(252, 177, 15, 0.6);
+  width: 20%;
+  float: right;
+  margin-bottom: 1%;
+  background-color: #000;
+  color: white;
+}
+.searchBox:focus {
+  border-color: rgba(
+    252,
+    177,
+    15,
+    0.6
+  ); /* Change to your desired focus border color */
+  box-shadow: 0 0 5px rgba(252, 177, 15, 0.6); /* Optional: add a shadow for better visibility */
+}
+.logOut {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  border: 1px solid #b1b0b0;
+  border-radius: 5px;
+  gap: 20px;
+}
+
+.form-check {
+  display: flex; /* Ensures the toggle and label stay inline */
+  align-items: center;
+  gap: 5px;
+}
+.form-check-label {
+  font-size: 15px;
+  color: #333;
+}
+.form-switch .form-check-input {
+  width: 3em;
+  height: 26px;
+}
+.footer {
+  height: 50px; /* Adjust as needed */
+  background-color: #333;
+  color: #c0b8b8;
+  text-align: center;
+  line-height: 50px;
+  bottom: 0px;
+  height: 60px;
+  font-size: small;
+}
+.content {
+  flex: 1;
+  padding-top: 1%;
+  height: 85vh;
+}
+table.table {
+  border-collapse: collapse;
+}
+table.table tr,
+table.table td,
+table.table th {
+  background-color: #000000;
+  border-color: rgba(252, 177, 15, 0.9);
+  color: white;
+}
+table.table th tr {
+  text-align: center;
+}
+.table-striped {
+  box-shadow: 0 4px 8px rgba(252, 177, 15, 0.6);
+}
+.tableHeader {
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 1%;
+}
+
+.ImageButton {
+  margin-right: 2%;
+}
+
+.DownloadButton {
+  float: right;
+  background-color: green;
+  color: white;
+}
+.hrStyle {
+  color: white;
+}
+.logOut i {
+  cursor: pointer;
+  color: #000000;
+}
+.notification-icon {
+  position: relative;
+  display: inline-block;
+}
+.notification-badge {
+  position: absolute;
+  top: -5px;
+  right: -10px;
+  background-color: red;
+  color: white;
+  font-size: 0.75rem;
+  padding: 2px 6px;
+  border-radius: 50%;
+}
+.form-check-input {
+  background-color: #ffc107;
+  border-color: #ffc107;
+}
+.form-check-input:checked {
+  background-color: #28a745;
+  border-color: #28a745;
+}
+.form-check-label {
+  color: #6c757d;
+}
+.form-check-input:checked + .form-check-label {
+  color: #000;
+}
+
+.onclickLogout {
+  cursor: pointer;
+}
+.onclickLogout:hover {
+  color: darkturquoise;
+}
+
+.modal-content {
+  background-color: #000;
+  color: white;
+  border-color: #ea801d;
+  box-shadow: 0 4px 8px rgba(252, 177, 15, 0.6);
+}
+.cancelImage {
+  border-color: #28a745;
+}
+
+.inline-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 25px;
+}
+.inline-list :hover {
+  color: darkturquoise;
+}
+
+.inline-list li {
+  display: inline;
+}
+
+.navBar {
+  padding-left: 40%;
+}
+
+li {
+  cursor: pointer;
+}
+
+.notification-dropdown {
+  position: absolute;
+  background: rgb(0, 0, 0);
+  /* border: 1px solid rgba(252, 177, 15, 0.6); */
+  box-shadow: 0 2px 5px rgba(252, 177, 15, 0.6);
+  width: 250px;
+  right: 10px;
+  top: 50px;
+  z-index: 1000;
+  list-style: none;
+  padding: 10px;
+  color: white;
+}
+
+.notification-dropdown ul {
+  padding: 0;
+  margin: 0;
+}
+
+.notification-dropdown li {
+  padding: 10px;
+  cursor: pointer;
+  border-bottom: 1px solid rgba(252, 177, 15, 0.6);
+  list-style: none;
+}
+
+.notification-dropdown li:last-child {
+  border-bottom: none;
+}
+
+.notification-preview {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  z-index: 2000;
+}
+
+.notification-preview .preview-content {
+  text-align: center;
+}
+
+.cancelImage {
+  border-color: #28a745;
+}
+
+
+@media (max-width: 768px) {
+  .sidebarComponent {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+  }
+
+  .CompanyLogo {
+    font-size: 1.2rem;
+  }
+
+  .logOut {
+    font-size: 1rem;
+    margin-top: 10px;
+  }
+}

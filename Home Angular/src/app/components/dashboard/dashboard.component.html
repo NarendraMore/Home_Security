@@ -1,0 +1,157 @@
+<div class="tableHeader">
+  Incident Data
+  <!-- <button type="button" class="btn btn-outline-success DownloadButton">
+      Download Report
+    </button> -->
+</div>
+<hr class="hrStyle" />
+<div class="content">
+  <input
+    type="text"
+    class="form-control searchBox"
+    [(ngModel)]="searchText"
+    placeholder="Search incidents..."
+  />
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Sr no</th>
+        <th scope="col">Incident Name</th>
+        <th scope="col">Date</th>
+        <th scope="col">Time</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="
+          let rowData of filteredData()
+            | paginate : { itemsPerPage: 5, currentPage: p };
+          let i = index
+        "
+      >
+        <th scope="row">{{ getIndex(i) }}</th>
+        <td>{{ rowData.incident_type }}</td>
+        <td>{{ rowData.date }}</td>
+        <td>{{ rowData.time }}</td>
+        <td>
+          <button
+            data-bs-toggle="modal"
+            data-bs-target="#staticBackdropImage"
+            type="button"
+            class="btn btn-outline-success ImageButton"
+            (click)="onshowImage(rowData._id)"
+          >
+            <i class="bi bi-image"></i>
+          </button>
+          <button
+            data-bs-toggle="modal"
+            data-bs-target="#staticBackdropVideo"
+            type="button"
+            class="btn btn-outline-success VideoButton"
+            (click)="onshowVideo(rowData._id)"
+          >
+            <i class="bi bi-camera-video"></i>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Pagination Controls -->
+  <div class="pagination-container">
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </div>
+  <div *ngIf="incidentDataArray.length === 0">
+    <p style="color: white">No incidents found...</p>
+  </div>
+</div>
+
+<!-- image dailog  -->
+
+<div
+  class="modal fade"
+  id="staticBackdropImage"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false"
+  tabindex="-1"
+  aria-labelledby="staticBackdropLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">
+          Incident Image
+        </h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <img
+          style="width: 100%; height: auto"
+          [src]="incidentImageUrl"
+          alt="Incident Image"
+          (error)="incidentImageUrl = 'assets/images/default-placeholder.png'"
+        />
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-outline-success cancelImage"
+          data-bs-dismiss="modal"
+        >
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- video dailog  -->
+<div
+  class="modal fade"
+  id="staticBackdropVideo"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false"
+  tabindex="-1"
+  aria-labelledby="staticBackdropLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">
+          Incident Video
+        </h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <!-- <video width="470" height="300" controls autoplay>
+            <source [src]="incidentVideoUrl" type="video/mp4" />
+          </video> -->
+        <video #videoPlayer width="470" height="300" controls autoplay>
+          <source [src]="incidentVideoUrl" type="video/mp4" />
+        </video>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-outline-success cancelImage"
+          data-bs-dismiss="modal"
+        >
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

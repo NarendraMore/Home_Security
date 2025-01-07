@@ -1,0 +1,7 @@
+numpy==1.23.5
+matplotlib==3.8.2
+opencv_python==4.9.0.80
+scipy==1.12.0
+keras==2.12.0
+tensorflow==2.12.0
+pymongo

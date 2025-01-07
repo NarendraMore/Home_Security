@@ -1,0 +1,51 @@
+<div class="sidebarComponent">
+  <div class="CompanyLogo">Home Security</div>
+  <div class="navBar">
+    <ul class="inline-list">
+      <li (click)="displayDashbord()">Dashboard</li>
+      <li (click)="dispalyCameraAdd()">Add Camera</li>
+      <li (click)="displayUser()">User</li>
+    </ul>
+  </div>
+  <div class="logOut">
+    <div class="notification-icon" (click)="toggleNotification()">
+      <i class="bi bi-bell" style="font-size: 24px" title="Notifications"></i>
+      <span class="notification-badge">{{ notificationCount }}</span>
+    </div>
+
+    <!-- Notification Dropdown -->
+    <div *ngIf="isNotificationOpen" class="notification-dropdown">
+      <ul>
+        <li
+          *ngFor="let notification of notifications; let i = index"
+          (click)="showPreview(notification, i)"
+        >
+          {{ notification }}
+        </li>
+      </ul>
+    </div>
+
+    <span class="onclickLogout" (click)="onclickLogout()">LogOut</span>
+  </div>
+</div>
+
+<!-- Notification Preview Modal -->
+<div *ngIf="showNotificationPreview" class="notification-preview">
+  <div class="preview-content">
+    <p>{{ selectedNotification }}</p>
+    <button
+      type="button"
+      (click)="closePreview()"
+      class="btn btn-outline-success cancelImage"
+      data-bs-dismiss="modal"
+    >
+      Close
+    </button>
+  </div>
+</div>
+
+<div class="content">
+  <router-outlet></router-outlet>
+</div>
+
+<div class="footer">© 2017–2024 Anemoi Technologies Pvt. Ltd. All rights reserved.</div>

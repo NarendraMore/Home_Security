@@ -1,0 +1,169 @@
+<div class="cameraMainDiv">
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a
+        class="nav-link"
+        [class.active]="activeTab === 'faceCamera'"
+        [ngClass]="{ 'custom-active-tab': activeTab === 'faceCamera' }"
+        (click)="setActiveTab('faceCamera')"
+        data-bs-toggle="tab"
+        href="#faceCamera"
+      >
+        Face Camera
+      </a>
+    </li>
+    <li class="nav-item">
+      <a
+        class="nav-link"
+        [class.active]="activeTab === 'surveillanceCamera'"
+        [ngClass]="{ 'custom-active-tab': activeTab === 'surveillanceCamera' }"
+        (click)="setActiveTab('surveillanceCamera')"
+        data-bs-toggle="tab"
+        href="#surveillanceCamera"
+      >
+        Surveillance Camera
+      </a>
+    </li>
+  </ul>
+
+  <!-- Face Camera Tab content -->
+  <div class="tab-content">
+    <div id="faceCamera" class="tab-pane fade show active">
+      <h4>Face Camera</h4>
+      <form
+        class="formStyle"
+        [formGroup]="faceCameraForm"
+        (ngSubmit)="addCamera()"
+      >
+        <div class="inputClass">
+          <label class="form-label">Camera Type</label>
+          <input
+            id="urlInput"
+            type="text"
+            class="form-control"
+            placeholder="Enter URL"
+            formControlName="cameratype"
+            readonly
+          />
+        </div>
+
+        <div class="mb-3 mt-4 inputClass">
+          <label for="connectionType" class="form-label"
+            >Connection Type <span style="color: red">*</span></label
+          >
+          <select
+            id="connectionType"
+            class="form-select"
+            (change)="onConnectionTypeChange($event)"
+          >
+            <option value="" selected>Select Connection</option>
+            <option value="usb">USB</option>
+            <option value="url">URL</option>
+          </select>
+        </div>
+
+        <!-- Conditional Input Fields -->
+        <div *ngIf="selectedConnectionType === 'usb'" class="mb-3 inputClass">
+          <label for="usbInput" class="form-label"
+            >USB Input <span style="color: red">*</span></label
+          >
+          <input
+            id="usbInput"
+            type="number"
+            class="form-control"
+            placeholder="Enter USB Input"
+            formControlName="usb"
+          />
+        </div>
+
+        <div *ngIf="selectedConnectionType === 'url'" class="mb-3 inputClass">
+          <label for="urlInput" class="inputClass"
+            >URL Input <span style="color: red">*</span></label
+          >
+          <input
+            id="urlInput"
+            type="text"
+            class="form-control"
+            placeholder="Enter URL"
+            formControlName="url"
+          />
+        </div>
+
+        <!-- Save Button -->
+        <button type="submit" class="btn btn-success">Save</button>
+      </form>
+    </div>
+
+
+
+
+    <!-- surveillance Camera Tab content -->
+    <div id="surveillanceCamera" class="tab-pane fade">
+      <h4>Surveillance Camera</h4>
+      <form
+        class="formStyle"
+        [formGroup]="serveillanceCameraForm"
+        (ngSubmit)="addSurveillanceCamera()"
+      >
+        <div class="inputClass">
+          <label class="form-label">Camera Type</label>
+          <input
+            id="urlInput"
+            type="text"
+            class="form-control"
+            placeholder="Enter URL"
+            formControlName="cameratype"
+            readonly
+          />
+        </div>
+
+        <!-- Conditional Input Fields -->
+
+        <div class="mb-3 mt-5 inputClass">
+          <label for="urlInput" class="inputClass"
+            >URL Input <span style="color: red">*</span></label
+          >
+          <input
+            id="urlInput"
+            type="text"
+            class="form-control"
+            placeholder="Enter URL"
+            formControlName="url"
+          />
+        </div>
+
+        <!-- Save Button -->
+        <button type="submit" class="btn btn-success">Save</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- toast code  -->
+
+<div class="toast-container position-fixed top-0 end-0 p-3">
+  <div
+    id="liveToast"
+    class="toast"
+    role="alert"
+    aria-live="assertive"
+    aria-atomic="true"
+    [class.show]="toastVisible"
+  >
+    <div class="toast-header">
+      <strong class="me-auto">Server Response</strong>
+      <small>Just now</small>
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="toast"
+        aria-label="Close"
+        (click)="hideToast()"
+      ></button>
+    </div>
+    <div class="toast-body">
+      {{ toastMessage }}
+    </div>
+  </div>
+</div>

@@ -1,0 +1,134 @@
+.loginDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.formDiv {
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(252, 177, 15, 0.9);
+  border: 1px solid rgba(252, 177, 15, 0.9);
+  width: 100%;
+  max-width: 400px;
+}
+
+.form-floating {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.inputClass input {
+  border-radius: 5px;
+  border: 1px solid rgba(252, 177, 15, 0.9);
+  width: 100%;
+  background-color: black;
+  color: white;
+}
+.inputClass select  {
+  border-radius: 5px;
+  border: 1px solid rgba(252, 177, 15, 0.9);
+  width: 100%;
+  background-color: black;
+  color: white;
+}
+
+.form-select .placeholder {
+  color: white;
+}
+
+.form-select {
+  color: white; /* Default text color */
+  background-color: #333; /* Optional background for better contrast */
+}
+
+.form-select:focus {
+  color: black; /* Change text color when focused */
+  background-color: white; /* Optional focus background */
+}
+
+label {
+  font-size: 0.9rem;
+  color: white; 
+}
+.login {
+  color: white;
+  text-align: center;
+  font-size: 30px;
+  padding-bottom: 5%;
+}
+.loginButton {
+  background-color: rgba(252, 177, 15, 0.9);
+  border-color: rgba(252, 177, 15, 0.9);
+  color: white;
+  float: right;
+}
+.SignUp {
+  color: white;
+  cursor: pointer;
+  font-size: 13px;
+  text-decoration: underline;
+}
+/* RegisterModel style  */
+
+.modal-content {
+  background-color: black;
+  border-color: rgba(252, 177, 15, 0.9);
+ 
+}
+.modal-title {
+  color: white;
+}
+.btn-close {
+  background-color: rgba(252, 177, 15, 0.9);
+}
+.saveRegister {
+  background-color: rgba(252, 177, 15, 0.9);
+  border-color: rgba(252, 177, 15, 0.9);
+}
+.Cancelregister {
+  border-color: rgba(252, 177, 15, 0.9);
+  color: rgba(252, 177, 15, 0.9);
+}
+.image-preview {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.image-preview img {
+  max-width: 50%;
+  height: auto;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 5px;
+}
+.ImageinputClass {
+  border-radius: 5px;
+  width: 100%;
+  background-color: black;
+  color: white;
+  
+}
+.form-control[type=file]:not(:disabled):not([readonly]) {
+    cursor: pointer;
+    background: transparent;
+    color: white;
+    border: 1px solid rgba(252, 177, 15, 0.9);
+    /* height: 58px; */
+}
+.form-control {
+    padding: -1.625rem .75rem;
+    font-weight: 400;
+    line-height: 2.7;
+}
+@media (max-width: 600px) {
+  .formDiv {
+    padding: 1rem;
+  }
+
+  label {
+    font-size: 0.8rem;
+  }
+}

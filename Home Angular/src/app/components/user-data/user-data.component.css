@@ -1,0 +1,336 @@
+.sidebarComponent {
+    display: flex; /* Use Flexbox for layout */
+    align-items: center; /* Vertically center items */
+    justify-content: space-between; /* Space out items */
+    padding: 10px 20px;
+    background-color: #f4f4f4; /* Optional background color */
+    border: 1px solid #ddd; /* Optional border */
+    height: 65px; /* Adjust height as needed */
+  }
+  
+  .CompanyLogo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .searchBox::placeholder {
+    color: #ffffff;
+    opacity: 0.5;
+  }
+  
+  .pagination-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+  .searchBox {
+    border-color: rgba(252, 177, 15, 0.6);
+    width: 20%;
+    float: right;
+    margin-bottom: 1%;
+    background-color: #000;
+    color: white;
+  }
+  .searchBox:focus {
+    border-color: rgba(
+      252,
+      177,
+      15,
+      0.6
+    ); /* Change to your desired focus border color */
+    box-shadow: 0 0 5px rgba(252, 177, 15, 0.6); /* Optional: add a shadow for better visibility */
+  }
+  .logOut {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border: 1px solid #b1b0b0;
+    border-radius: 5px;
+    gap: 20px;
+  }
+  
+  .form-check {
+    display: flex; /* Ensures the toggle and label stay inline */
+    align-items: center;
+    gap: 5px;
+  }
+  .form-check-label {
+    font-size: 15px;
+    color: #333;
+  }
+  .form-switch .form-check-input {
+    width: 3em;
+    height: 26px;
+  }
+  .footer {
+    height: 50px; /* Adjust as needed */
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    line-height: 50px;
+    bottom: 0px;
+  }
+  .content {
+    flex: 1;
+    padding-top: 1%;
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+  table.table {
+    border-collapse: collapse;
+  }
+  table.table tr,
+  table.table td,
+  table.table th {
+    background-color: #000000;
+    border-color: rgba(252, 177, 15, 0.9);
+    color: white;
+  }
+  table.table th tr {
+    text-align: center;
+  }
+  .table-striped {
+    box-shadow: 0 4px 8px rgba(252, 177, 15, 0.6);
+  }
+  .tableHeader {
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 1%;
+    padding-left: 5%;
+  }
+  
+  .ImageButton {
+    margin-right: 2%;
+  }
+  
+  .DownloadButton {
+    float: right;
+    background-color: green;
+    color: white;
+  }
+  .hrStyle {
+    color: white;
+  }
+  .logOut i {
+    cursor: pointer;
+    color: #000000;
+  }
+  .notification-icon {
+    position: relative;
+    display: inline-block;
+  }
+  .notification-badge {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    background-color: red;
+    color: white;
+    font-size: 0.75rem;
+    padding: 2px 6px;
+    border-radius: 50%;
+  }
+  .form-check-input {
+    background-color: #ffc107;
+    border-color: #ffc107;
+  }
+  .form-check-input:checked {
+    background-color: #28a745;
+    border-color: #28a745;
+  }
+  .form-check-label {
+    color: #6c757d;
+  }
+  .form-check-input:checked + .form-check-label {
+    color: #000;
+  }
+  
+  .onclickLogout {
+    cursor: pointer;
+  }
+  .onclickLogout:hover {
+    color: darkturquoise;
+  }
+  
+  .modal-content {
+    background-color: #000;
+    color: white;
+    border-color: #ea801d;
+    box-shadow: 0 4px 8px rgba(252, 177, 15, 0.6);
+  }
+  .cancelImage {
+    border-color: #28a745;
+  }
+  
+  .inline-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 25px;
+  }
+  
+  .inline-list li {
+    display: inline;
+  }
+  
+  .navBar {
+      padding-left: 40%;
+  }
+  
+  @media (max-width: 768px) {
+    .sidebarComponent {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: auto;
+    }
+  
+    .CompanyLogo {
+      font-size: 1.2rem;
+    }
+  
+    .logOut {
+      font-size: 1rem;
+      margin-top: 10px;
+    }
+  }
+  
+  .loginDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+  }
+  
+  .formDiv {
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(252, 177, 15, 0.9);
+    border: 1px solid rgba(252, 177, 15, 0.9);
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  .form-floating {
+    position: relative;
+    margin-bottom: 1rem;
+  }
+  
+  .inputClass input {
+    border-radius: 5px;
+    border: 1px solid rgba(252, 177, 15, 0.9);
+    width: 100%;
+    background-color: black;
+    color: white;
+  }
+  .inputClass select  {
+    border-radius: 5px;
+    border: 1px solid rgba(252, 177, 15, 0.9);
+    width: 100%;
+    background-color: black;
+    color: white;
+  }
+  
+  .form-select .placeholder {
+    color: white;
+  }
+  
+  .form-select {
+    color: white; /* Default text color */
+    background-color: #333; /* Optional background for better contrast */
+  }
+  
+  .form-select:focus {
+    color: black; /* Change text color when focused */
+    background-color: white; /* Optional focus background */
+  }
+  
+  label {
+    font-size: 0.9rem;
+    color: white;
+  }
+  .login {
+    color: white;
+    text-align: center;
+    font-size: 30px;
+    padding-bottom: 5%;
+  }
+  .loginButton {
+    background-color: rgba(252, 177, 15, 0.9);
+    border-color: rgba(252, 177, 15, 0.9);
+    color: white;
+    float: right;
+  }
+  .SignUp {
+    color: white;
+    cursor: pointer;
+    font-size: 13px;
+    text-decoration: underline;
+  }
+  /* RegisterModel style  */
+  
+  .modal-content {
+    background-color: black;
+    border-color: rgba(252, 177, 15, 0.9);
+   
+  }
+  .modal-title {
+    color: white;
+  }
+  .btn-close {
+    background-color: rgba(252, 177, 15, 0.9);
+  }
+  .saveRegister {
+    background-color: rgba(252, 177, 15, 0.9);
+    border-color: rgba(252, 177, 15, 0.9);
+  }
+  .Cancelregister {
+    border-color: rgba(252, 177, 15, 0.9);
+    color: rgba(252, 177, 15, 0.9);
+  }
+  .image-preview {
+    margin-top: 1rem;
+    text-align: center;
+  }
+  
+  .image-preview img {
+    max-width: 50%;
+    height: auto;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 5px;
+  }
+  .ImageinputClass {
+    border-radius: 5px;
+    width: 100%;
+    background-color: black;
+    color: white;
+    
+  }
+  .form-control[type=file]:not(:disabled):not([readonly]) {
+      cursor: pointer;
+      background: transparent;
+      color: white;
+      border: 1px solid rgba(252, 177, 15, 0.9);
+      /* height: 58px; */
+  }
+  .form-control {
+      padding: -1.625rem .75rem;
+      font-weight: 400;
+      line-height: 2.7;
+  }
+  @media (max-width: 600px) {
+    .formDiv {
+      padding: 1rem;
+    }
+  
+    label {
+      font-size: 0.8rem;
+    }
+  }
+  

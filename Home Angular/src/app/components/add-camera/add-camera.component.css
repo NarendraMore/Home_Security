@@ -1,0 +1,51 @@
+.cameraMainDiv {
+  padding: 2%;
+}
+.nav-item {
+  padding-left: 2%;
+  cursor: pointer;
+}
+.nav-link {
+  color: white;
+}
+/* Custom active tab styles */
+.nav-tabs .nav-link.active {
+  border-color: rgba(252, 177, 15, 0.6);
+  background-color: rgba(252, 177, 15, 0.6);
+  color: white;
+}
+.nav-tabs {
+  border-bottom-color: rgba(252, 177, 15, 0.6);
+}
+
+#faceCamera {
+  color: white;
+  padding-top: 2%;
+}
+#surveillanceCamera {
+  padding-top: 2%;
+  color: white;
+}
+
+.inputClass input {
+    border-radius: 5px;
+    border: 1px solid rgba(252, 177, 15, 0.9);
+    width: 30%;
+    background-color: black;
+    color: white;
+  }
+  .inputClass select  {
+    border-radius: 5px;
+    border: 1px solid rgba(252, 177, 15, 0.9);
+    width: 30%;
+    background-color: black;
+    color: white;
+  }
+  .formStyle{
+    padding-top: 3%;
+  }
+  .inputClass input::placeholder {
+    color: white; 
+    opacity: 0.5;
+  }
+  
