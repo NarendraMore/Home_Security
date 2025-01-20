@@ -61,8 +61,8 @@ router.post('/generate', async (req, res) => {
         // Prepare and send email notification
         const emailMessage = `New ${incident_type} incident reported on ${date} at ${time}.`;
         await sendEmailAlert(
-          `Incident Report: ${incident_type}`,
-          `${emailMessage}\n\nImage: ${imageUrl}\nVideo: ${videoUrl}`
+          `Incident Report: ${incident_type},
+          ${emailMessage}\n\nImage: ${imageUrl}\nVideo: ${videoUrl}`
         );
 
         // Respond with success
@@ -74,7 +74,7 @@ router.post('/generate', async (req, res) => {
         console.error('Error during delayed upload:', innerError.message);
         res.status(500).send({ error: 'Failed to upload and save incident' });
       }
-    }, 30000); // Delay of 30 seconds before uploading
+    }, 20000); // Delay of 20 seconds before uploading
 
   } catch (error) {
     console.error('Error handling incident generation:', error.message);

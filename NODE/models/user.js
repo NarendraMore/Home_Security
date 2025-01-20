@@ -13,8 +13,12 @@ const userSchema = new mongoose.Schema({
   image: {
     filename: String,
     data: Buffer
-} 
-
+} ,
+otp: { type: Number }, // Field to store the OTP
+otpExpiry: { type: Date }, // Field to store the OTP expiration time
 });
+
+// Add an index for email to improve query performance
+userSchema.index({ email: 1 });
 
 module.exports = mongoose.model('User', userSchema);

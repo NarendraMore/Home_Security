@@ -114,7 +114,7 @@ def weapon_get_frame(frame, cameraname, camlocation, date, time, camip, serverip
                     start_frame = max(0, event_frame_indices[-1] - 150)  # 5 seconds before the event
                     end_frame = min(len(frame_buffer), event_frame_indices[-1] + 300)  # 5 seconds after the event
                     height, width, _ = resized_frame.shape
-                    fourcc = cv2.VideoWriter_fourcc(*'mp4v')
+                    fourcc = cv2.VideoWriter_fourcc(*'H246')#H246
                     video_path = f"{path_date_time_for_image_save[3]}/detected.mp4"
                     print(f"fps : {fps}")
                     out = cv2.VideoWriter(video_path, fourcc, 15, (width, height))
